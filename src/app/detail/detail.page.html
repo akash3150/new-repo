@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-img class="image" src="assets/IMG_Prickly pear2.png"></ion-img>
+  <ion-row class="ion-justify-content-between margin" style="margin-bottom: 15px;">
+    <div class="row-heading">Prickly Pear</div>
+    <div class="amount">25 $</div>
+  </ion-row>
+  <ion-row class="margin star" style="margin-top: 0px; margin-bottom: 6px;">
+    <ion-icon name="star" color="yellow"></ion-icon>
+    <span style="margin-left: 5px;">4.8</span>
+  </ion-row>
+  <ion-row class="margin" style="margin-top: 0px;  margin-bottom: 6px;">
+    <p>Select size</p>
+    <ion-row nowrap class=" headerChip">
+      <ion-chip [ngClass]="value === '5' ? 'text' : '' " (click)="value = '5'">5 Inch</ion-chip>
+      <ion-chip (click)="value = '10'" [ngClass]="value === '10' ? 'text' : '' ">10 Inch</ion-chip>
+      <ion-chip (click)="value = '25'" [ngClass]="value === '25' ? 'text' : '' ">25 Inch</ion-chip>
+      <ion-chip (click)="value = '50'" [ngClass]="value === '50' ? 'text' : '' ">50 Inch</ion-chip>
+    </ion-row>
+  </ion-row>
+  <ion-row class="margin" style="margin-top: 0px;">
+    <p>Description</p>
+    <div class="des">
+      Prickly pear is a drought-resistant and
+      hardy cactus that blooms with yellow-golden flowers
+      in summer.</div>
+  </ion-row>
+  <ion-row class="margin ion-justify-content-between" style="margin-top:40px;">
+    <div class="fav"><ion-icon class="icon" name="heart-outline"></ion-icon>
+    </div>
+    <div>
+      <ion-button class="btn">
+        Add to Cart
+      </ion-button>
+    </div>
+  </ion-row>
+</ion-content>

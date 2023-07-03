@@ -1,0 +1,99 @@
+.main {
+  height: 70vh;
+  position: relative;
+  background-color: #d3b398;
+}
+
+.second {
+  background: white;
+  height: 40vh;
+  width: 600px;
+  bottom: 0;
+  z-index: 10;
+  left: -98px;
+  position: absolute;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.test {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  background: #ffffff;
+  bottom: 43px;
+  z-index: 34;
+  left: 39%;
+  display: flex;
+  box-shadow: 0px 4px 20px 4px rgba(80, 89, 98, 0.1);
+  border-radius: 16px;
+}
+
+ion-icon {
+  width: 2em;
+  height: 2em;
+  color: #d3b398;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+ion-slides {
+  background-color: transparent;
+}
+swiper-slide {
+  height: 100%;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.image {
+  margin-top: 17%;
+  width: 100%;
+}
+ion-content {
+  --background: transparent !important;
+}
+
+.heading {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 38px;
+  text-align: center;
+  width: 220px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.main-text {
+  width: 100%;
+  display: flex;
+  margin-top: 8%;
+  justify-content: center;
+}
+
+.main-texts {
+  width: 100%;
+  display: flex;
+  margin-top: 1%;
+  justify-content: center;
+}
+
+.heading1 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  /* or 22px */
+
+  text-align: center;
+  width: 237px;
+  color: rgba(0, 0, 0, 0.5);
+}

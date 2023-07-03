@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>All Plants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="txting">
+    Plant<br>
+    is for room
+  </div>
+  <ion-scroll scrollX="true" style="width:100vw;">
+    <ion-row nowrap class="headerChip">
+      <ion-chip [ngClass]="value === 'All' ? 'text' : '' " (click)="value = 'All'"> All</ion-chip>
+      <ion-chip (click)="value = 'Cacti'" [ngClass]="value === 'Cacti' ? 'text' : '' ">Cacti</ion-chip>
+      <ion-chip (click)="value = 'Pot'" [ngClass]="value === 'Pot' ? 'text' : '' ">In pots</ion-chip>
+      <ion-chip (click)="value = 'Dried'" [ngClass]="value === 'Dried' ? 'text' : '' ">Dried flowers</ion-chip>
+      <ion-chip (click)="value = 'Small'" [ngClass]="value === 'Small' ? 'text' : '' ">Small flowers</ion-chip>
+      <ion-chip (click)="value = 'Other'" [ngClass]="value === 'Other' ? 'text' : '' ">Other</ion-chip>
+    </ion-row>
+  </ion-scroll>
+
+  <div class="popularity">
+    <span>Popularity</span> <ion-icon class="arrow-down-outline" name="arrow-down-outline"></ion-icon>
+  </div>
+  <div>
+    <ion-row class="ion-padding">
+      <ion-col class="col" size="12" *ngFor="let value of data; let i = index;">
+        <ion-row (click)="onClick()">
+          <ion-col size="4">
+            <ion-img class="ion-image" style="width: 100%;" [src]="value.image" class="image{{i+1}}" />
+          </ion-col>
+          <ion-col size="8">
+            <ion-row style="margin-left: 10px;">
+              <h1 class=" heading">{{value.name}}</h1>
+              <div class="row">
+                <ion-icon name="star" color="yellow"></ion-icon>
+                <span style="margin-left: 5px;">{{value.rating}}</span>
+              </div>
+
+            </ion-row>
+            <ion-row style="margin-left: 10px; margin-top: -10px;">
+              <p>{{value.des}}</p>
+
+            </ion-row>
+            <p style="opacity: 1;margin-left: 10px;"> <span>{{value.amount}} $</span></p>
+          </ion-col>
+        </ion-row>
+        <div *ngIf="i === 1">
+          <ion-img class="image" src="assets/banner.png"></ion-img>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+</ion-content>

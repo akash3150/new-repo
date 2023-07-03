@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="image">
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" style="background-color:#c4dbe5" src="assets/user-avatar.png" />
+    </ion-avatar>
+  </div>
+  <div class="text">
+    Mac Daddy
+  </div>
+  <div class="ion-margin" style="margin-top: 50px;">
+    <div class="w-100">
+      <ion-label>Birth Date</ion-label>
+      <ion-item>
+        <ion-input value="{{ date | date: 'dd/MM/yyyy' }}" id="date"></ion-input>
+        <ion-popover trigger="date" size="cover">
+          <ng-template>
+            <ion-datetime presentation="date" [max]="max" [(ngModel)]="date"></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-item>
+    </div>
+    <div class="w-100">
+      <ion-label>Email</ion-label>
+      <ion-item>
+        <ion-input value="test@yopmail.com" type="text" id="email"></ion-input>
+      </ion-item>
+    </div>
+    <div class="w-100">
+      <ion-label>Username</ion-label>
+      <ion-item>
+        <ion-input value="test12" type="text" id="user"></ion-input>
+      </ion-item>
+    </div>
+
+    <div class="button-text">
+      <ion-button class="btn">
+        Update
+      </ion-button>
+    </div>
+
+  </div>
+
+</ion-content>
