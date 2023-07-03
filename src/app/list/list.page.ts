@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
 import { Router } from '@angular/router';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class ListPage implements OnInit {
   component = PlantDetailComponent;
   value = 'Cacti';
-  data: Array<any> = [
+  data: any = [
     {
       name: 'Echeveriaaer',
       rating: 5.0,
@@ -32,14 +33,30 @@ export class ListPage implements OnInit {
       des: 'From 8 inch',
       image: 'https://ride-app-common-upload.s3.us-east-1.amazonaws.com/uploads/1686641326323_img_Sansevieria.png'
     }
-  ]
-  constructor(private router: Router) { }
+  ];
+  items: any = []
+  constructor(private router: Router) {
+    this.items = this.data;
+  }
 
   ngOnInit() {
+
   }
 
   onClick() {
     this.router.navigateByUrl('detail')
+  }
+
+  private generateItems() {
+    this.items = [...this.items, ...this.data];
+
+  }
+
+  onIonInfinite(ev: any) {
+    this.generateItems();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 2200);
   }
 
 }

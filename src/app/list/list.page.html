@@ -24,15 +24,16 @@
     <span>Popularity</span> <ion-icon class="arrow-down-outline" name="arrow-down-outline"></ion-icon>
   </div>
   <div>
+    <!-- Grid thing is here  -->
     <ion-row class="ion-padding">
-      <ion-col class="col" size="12" *ngFor="let value of data; let i = index;">
+      <ion-col class="col" size="12" *ngFor="let value of items; let i = index;">
         <ion-row (click)="onClick()">
           <ion-col size="4">
             <ion-img class="ion-image" style="width: 100%;" [src]="value.image" class="image{{i+1}}" />
           </ion-col>
           <ion-col size="8">
             <ion-row style="margin-left: 10px;">
-              <h1 class=" heading">{{value.name}}</h1>
+              <h1 class=" heading">{{value.name}} ({{i+1}})</h1>
               <div class="row">
                 <ion-icon name="star" color="yellow"></ion-icon>
                 <span style="margin-left: 5px;">{{value.rating}}</span>
@@ -46,12 +47,15 @@
             <p style="opacity: 1;margin-left: 10px;"> <span>{{value.amount}} $</span></p>
           </ion-col>
         </ion-row>
-        <div *ngIf="i === 1">
+        <div *ngIf="i === 1 || i === 6 ">
           <ion-img class="image" src="assets/banner.png"></ion-img>
         </div>
       </ion-col>
+      <!-- Infinite scrolling down -->
+      <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content loadingText="Please wait..."
+          loadingSpinner="bubbles"></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-row>
-
-
   </div>
 </ion-content>
