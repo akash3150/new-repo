@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="txting">
     Plant<br>
     is for room
@@ -26,6 +29,7 @@
   <div>
     <!-- Grid thing is here  -->
     <ion-row class="ion-padding">
+
       <ion-col class="col" size="12" *ngFor="let value of items; let i = index;">
         <ion-row (click)="onClick()">
           <ion-col size="4">

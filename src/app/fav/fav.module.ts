@@ -4,18 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DetailPageRoutingModule } from './detail-routing.module';
+import { FavPageRoutingModule } from './fav-routing.module';
 
-import { DetailPage } from './detail.page';
+import { FavPage } from './fav.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPageRoutingModule
+    FavPageRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  declarations: [DetailPage]
+  declarations: [FavPage]
 })
-export class DetailPageModule { }
+export class FavPageModule { }

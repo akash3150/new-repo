@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Toast } from '@capacitor/toast';
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.page.html',
@@ -10,6 +10,17 @@ export class DetailPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
+
+  showHelloToast = async () => {
+
+    let a = await Toast.show({
+      text: 'Hello texting!',
+      position: 'top',
+      duration: 'long'
+    });
+    console.log(a);
+  };
 
 }

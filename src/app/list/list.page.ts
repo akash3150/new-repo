@@ -52,6 +52,14 @@ export class ListPage implements OnInit {
 
   }
 
+  handleRefresh(event: any) {
+    this.items = this.data
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  }
+
   onIonInfinite(ev: any) {
     this.generateItems();
     setTimeout(() => {

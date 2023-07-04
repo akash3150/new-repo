@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { PlantDetailComponent } from './plant-detail/plant-detail.component';
 
 const routes: Routes = [
   {
@@ -17,12 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'detail',
-    loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
+    loadChildren: () => import('./detail/detail.module').then(m => m.DetailPageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'plant-detail',
+    component: PlantDetailComponent
   }
+
 
 ];
 
