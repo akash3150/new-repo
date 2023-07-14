@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlantDetailComponent } from '../plant-detail/plant-detail.component';
 import { Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
+import { Preferences } from '@capacitor/preferences';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +15,7 @@ export class ListPage implements OnInit {
   value = 'Cacti';
   data: any = [
     {
-      name: 'Echeveriaaer',
+      name: 'Echeveria',
       rating: 5.0,
       amount: 25,
       des: 'From 2 inch',
@@ -35,15 +37,22 @@ export class ListPage implements OnInit {
     }
   ];
   items: any = []
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private storage: Storage) {
     this.items = this.data;
   }
 
+  /**
+   * Create the storage object
+   */
   ngOnInit() {
-
+    this.storage.create();
   }
 
-  onClick() {
+
+  onClick(data: any) {
+    this.setData(data);
+    this.setObject(data)
     this.router.navigateByUrl('detail')
   }
 
@@ -65,6 +74,27 @@ export class ListPage implements OnInit {
     setTimeout(() => {
       (ev as InfiniteScrollCustomEvent).target.complete();
     }, 2200);
+  }
+
+  /**
+  * Set the storage object By ionic Storage
+  */
+  setData(data: any) {
+    // Store the value under "plantDetail"
+    this.storage.set('plantDetail', data);
+  }
+
+
+
+  /**
+  * Set the storage object By Capacitor Preferences plugin
+  */
+  async setObject(data: any) {
+    // set data through JSON stringify
+    await Preferences.set({
+      key: 'plant',
+      value: JSON.stringify(data)
+    });
   }
 
 }

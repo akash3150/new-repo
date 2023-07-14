@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemReorderEventDetail } from '@ionic/angular';
-
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 @Component({
   selector: 'app-fav',
   templateUrl: './fav.page.html',
@@ -8,9 +9,11 @@ import { ItemReorderEventDetail } from '@ionic/angular';
 })
 export class FavPage implements OnInit {
 
-  constructor() { }
+  constructor(private iab: InAppBrowser,
+    private socialSharing: SocialSharing) { }
 
   ngOnInit() {
+
   }
 
   handleReorder(ev: CustomEvent<ItemReorderEventDetail>) {
@@ -22,4 +25,35 @@ export class FavPage implements OnInit {
     // by the reorder group
     ev.detail.complete();
   }
+
+  button() {
+    let browser = this.iab.create('https://ionicframework.com/');
+
+    browser.on('loadstop').subscribe(event => {
+      browser.insertCSS({ code: "body{color: red;" });
+    });
+
+    browser.close();
+  }
+
+
+
+  second() {
+    // Check if sharing via email is supported
+    // this.socialSharing.canShareViaEmail().then(() => {
+    //   // Sharing via email is possible
+    // }).catch(() => {
+    //   // Sharing via email is not possible
+    // });
+
+    // Share via email
+    this.socialSharing.share('Body').then(() => {
+      // Success!
+    }).catch(() => {
+      // Error!
+    });
+  }
+
+
+
 }

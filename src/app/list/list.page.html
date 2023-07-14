@@ -31,7 +31,7 @@
     <ion-row class="ion-padding">
 
       <ion-col class="col" size="12" *ngFor="let value of items; let i = index;">
-        <ion-row (click)="onClick()">
+        <ion-row (click)="onClick(value)">
           <ion-col size="4">
             <ion-img class="ion-image" style="width: 100%;" [src]="value.image" class="image{{i+1}}" />
           </ion-col>
